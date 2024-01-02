@@ -1,0 +1,17 @@
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  padding: 20px;
+  font-size: 30px;
+  color: var(--text);
+}
+
+.button-search {
+  background: none;
+  border: none;
+  color: var(--text);
+}
