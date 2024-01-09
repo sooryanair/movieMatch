@@ -6,6 +6,7 @@ import {
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Constants } from '../utility/constants';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,7 @@ import { Constants } from '../utility/constants';
 export class ApiHandlerService {
   private movieApiUrl = Constants.MOVIE_BASE_URL;
   private movieHeaders = new HttpHeaders({
-    'X-RapidAPI-Key': '1d413a21e7msh847abac72d886b5p1e1ac1jsne4bc62d4cb74',
+    'X-RapidAPI-Key': environment.MOVIE_API_KEY,
     'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com',
   });
 
