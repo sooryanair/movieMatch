@@ -1,3 +1,13 @@
-<div *ngFor="let movie of movieList">
-  <p>{{ movie.titleText.text }}</p>
-</div>
+<section>
+  <swiper-container>
+    <swiper-slide *ngFor="let movie of movieList">
+      <p>{{ movie.titleText.text }}</p>
+      <img src="{{ movie?.primaryImage?.url }}" width="auto" height="500" />
+    </swiper-slide>
+  </swiper-container>
+
+  <div>
+    <button pButton (click)="dislike()">Dislike</button>
+    <button pButton (click)="like()">Like</button>
+  </div>
+</section>
