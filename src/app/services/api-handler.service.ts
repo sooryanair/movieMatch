@@ -5,20 +5,20 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
-import { Constants } from '../utility/constants';
-import { environment } from '../../environments/environment';
+// import { Constants } from '../utility/constants';
+// import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiHandlerService {
-  private movieApiUrl = Constants.MOVIE_BASE_URL;
-  private movieHeaders = new HttpHeaders({
-    'X-RapidAPI-Key': environment.MOVIE_API_KEY,
-    'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com',
-  });
+  // private movieApiUrl = Constants.MOVIE_BASE_URL;
+  // private movieHeaders = new HttpHeaders({
+  //   'X-RapidAPI-Key': environment.MOVIE_API_KEY,
+  //   'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com',
+  // });
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   public get(url: string, options?: any): Observable<any> {
     return this.http.get(url, options).pipe(
@@ -52,15 +52,15 @@ export class ApiHandlerService {
     );
   }
 
-  public getMovieData(): Observable<any> {
-    const options = {
-      headers: this.movieHeaders,
-    };
+  // public getMovieData(): Observable<any> {
+  //   const options = {
+  //     headers: this.movieHeaders,
+  //   };
 
-    return this.http
-      .get<any>(this.movieApiUrl, options)
-      .pipe(catchError(this.handleError));
-  }
+  //   return this.http
+  //     .get<any>(this.movieApiUrl, options)
+  //     .pipe(catchError(this.handleError));
+  // }
 
   private handleError(error: HttpErrorResponse): string {
     let errorMessage = 'An error occurred';

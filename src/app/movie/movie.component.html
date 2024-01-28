@@ -1,13 +1,11 @@
 <section>
-  <p-card header="{{currentMovie?.titleText?.text}}" subheader="Card Subheader" [style]="{ width: '360px' }">
+  <p-card header="{{currentMovie?.title}}" subheader="IMDb Rating: {{currentMovie.vote_average | number:'1.1-2'}}"
+    [style]="{ width: '360px' }">
     <ng-template pTemplate="header">
-      <img src="{{ currentMovie?.primaryImage?.url }}" width="auto" height="500" />
+      <img src="https://image.tmdb.org/t/p/w500/{{ currentMovie?.poster_path }}" width="auto" height="500" />
     </ng-template>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
-      consequuntur error repudiandae numquam deserunt quisquam repellat libero
-      asperiores earum nam nobis, culpa ratione quam perferendis esse,
-      cupiditate neque quas!
+      {{currentMovie.overview}}
     </p>
     <!-- <ng-template pTemplate="footer">
     </ng-template> -->

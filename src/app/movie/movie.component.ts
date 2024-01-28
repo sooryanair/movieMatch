@@ -3,6 +3,7 @@ import { ApiService } from '../services/api.service';
 import { CommonModule } from '@angular/common';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { Constants } from '../utility/constants';
 
 @Component({
   selector: 'app-movie',
@@ -21,7 +22,13 @@ export class MovieComponent implements OnInit {
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.apiService.getMovies().subscribe((res) => {
+    // this.apiService.getMovies().subscribe((res) => {
+    //   this.movieList = res.results;
+    //   this.currentMovie = this.movieList[this.position];
+    //   console.log(res);
+    // });
+    const popularMovies = Constants.MOVIE_PARAM1 + '1';
+    this.apiService.getMovies(popularMovies).subscribe((res) => {
       this.movieList = res.results;
       this.currentMovie = this.movieList[this.position];
       console.log(res);
