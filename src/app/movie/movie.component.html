@@ -1,11 +1,17 @@
 <section>
-  <swiper-container>
-    <swiper-slide *ngFor="let movie of movieList">
-      <p>{{ movie.titleText.text }}</p>
-      <img src="{{ movie?.primaryImage?.url }}" width="auto" height="500" />
-    </swiper-slide>
-  </swiper-container>
-
+  <p-card header="{{currentMovie?.titleText?.text}}" subheader="Card Subheader" [style]="{ width: '360px' }">
+    <ng-template pTemplate="header">
+      <img src="{{ currentMovie?.primaryImage?.url }}" width="auto" height="500" />
+    </ng-template>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed
+      consequuntur error repudiandae numquam deserunt quisquam repellat libero
+      asperiores earum nam nobis, culpa ratione quam perferendis esse,
+      cupiditate neque quas!
+    </p>
+    <!-- <ng-template pTemplate="footer">
+    </ng-template> -->
+  </p-card>
   <div>
     <button pButton (click)="dislike()">Dislike</button>
     <button pButton (click)="like()">Like</button>
