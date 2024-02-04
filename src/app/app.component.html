@@ -1,4 +1,10 @@
 <div ngClass="container">
+  <div class="formGroup">
+    <button type="button" (click)="authService.GoogleAuth()">
+      Log in with Google
+    </button>
+  </div>
+  
   <app-navbar></app-navbar>
   <app-movie></app-movie>
 </div>

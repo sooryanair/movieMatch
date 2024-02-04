@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MovieComponent } from './movie/movie.component';
-import { Firestore, collection, getDocs } from '@angular/fire/firestore';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -12,19 +12,7 @@ import { Firestore, collection, getDocs } from '@angular/fire/firestore';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
-export class AppComponent {
-  title = 'movie-match';
-  firestore = inject(Firestore);
 
-  ngOnInit() {
-    getDocs(collection(this.firestore, 'users'))
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          console.log(doc.data());
-        });
-      })
-      .catch((error) => {
-        console.error('Error getting documents: ', error);
-      });
-  }
+export class AppComponent {
+  constructor(public authService: AuthService) { }
 }

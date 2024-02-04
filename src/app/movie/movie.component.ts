@@ -18,7 +18,7 @@ export class MovieComponent implements OnInit {
 
 
   movieList: any;
-  currentMovie: any;
+  currentMovie: any = {};
   position: number = 0;
   likeList: any[] = [];
 
